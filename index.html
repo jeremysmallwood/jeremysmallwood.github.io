@@ -1,26 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Jeremy L. Smallwood - Astrophysicist</title>
+    <title>Dr. Leo Stellar - Astrophysicist</title>
+    <script>
+        // On page load or when changing themes, it's best to add this inline in `head` to avoid a flash of unstyled content (FOUC).
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* slate-900 */
-            color: #cbd5e1; /* slate-300 */
         }
         .nav-link {
             transition: color 0.3s, border-bottom-color 0.3s;
             border-bottom: 2px solid transparent;
         }
-        .nav-link:hover, .nav-link.active {
-            color: #0ea5e9; /* sky-500 */
+        .nav-link.active {
             border-bottom-color: #0ea5e9; /* sky-500 */
         }
+        .nav-link:hover, .nav-link.active {
+            color: #0ea5e9; /* sky-500 */
+        }
+
         .content-section {
             display: none;
             animation: fadeIn 0.5s;
@@ -29,9 +38,15 @@
             display: block;
         }
         .publication-item:hover {
+            background-color: #f1f5f9; /* slate-100 */
+        }
+        .dark .publication-item:hover {
             background-color: #1e293b; /* slate-800 */
         }
         ::placeholder {
+            color: #94a3b8; /* slate-400 */
+        }
+        .dark ::placeholder {
             color: #64748b; /* slate-500 */
         }
         @keyframes fadeIn {
@@ -40,32 +55,38 @@
         }
     </style>
 </head>
-<body class="text-slate-300">
+<body class="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 transition-colors duration-500">
 
     <!-- Header & Navigation -->
-    <header class="bg-slate-900/80 backdrop-blur-md shadow-lg shadow-sky-900/10 sticky top-0 z-50">
+    <header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md dark:shadow-lg dark:shadow-sky-900/10 sticky top-0 z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-white">Dr. Jeremy L. Smallwood</h1>
-                    <span class="ml-3 text-md text-slate-400 hidden sm:inline">Astrophysics</span>
+                    <h1 class="text-2xl font-bold text-slate-900 dark:text-white">Dr. Leo Stellar</h1>
+                    <span class="ml-3 text-md text-slate-500 dark:text-slate-400 hidden sm:inline">Astrophysics & Cosmology</span>
                 </div>
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link active font-medium pb-1">Bio</a>
-                    <a href="#research" class="nav-link font-medium pb-1">Research</a>
-                    <a href="#publications" class="nav-link font-medium pb-1">Publications</a>
-                    <a href="#cv" class="nav-link font-medium pb-1">CV</a>
-                    <a href="#contact" class="nav-link font-medium pb-1">Contact</a>
-                </nav>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-slate-300">
-                        <i data-lucide="menu"></i>
+                <div class="flex items-center">
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <a href="#home" class="nav-link active font-medium pb-1">Bio</a>
+                        <a href="#research" class="nav-link font-medium pb-1">Research</a>
+                        <a href="#publications" class="nav-link font-medium pb-1">Publications</a>
+                        <a href="#cv" class="nav-link font-medium pb-1">CV</a>
+                        <a href="#contact" class="nav-link font-medium pb-1">Contact</a>
+                    </nav>
+                    <button id="theme-toggle" type="button" class="ml-6 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none rounded-lg text-sm p-2.5">
+                        <i id="theme-toggle-dark-icon" class="hidden h-5 w-5" data-lucide="moon"></i>
+                        <i id="theme-toggle-light-icon" class="hidden h-5 w-5" data-lucide="sun"></i>
                     </button>
+                    <div class="md:hidden ml-4">
+                        <button id="mobile-menu-button" class="text-slate-800 dark:text-slate-300">
+                            <i data-lucide="menu"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 pb-4">
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 pb-4">
             <a href="#home" class="block py-2 px-4 text-sm nav-link active">Bio</a>
             <a href="#research" class="block py-2 px-4 text-sm nav-link">Research</a>
             <a href="#publications" class="block py-2 px-4 text-sm nav-link">Publications</a>
@@ -79,18 +100,18 @@
 
         <!-- Bio Section -->
         <section id="home" class="content-section active">
-            <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-slate-100 dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
                 <div class="md:flex">
                     <div class="md:shrink-0">
-                        <img class="h-48 w-full object-cover md:h-full md:w-64" src="https://placehold.co/600x800/1e293b/94a3b8?text=Dr.+Leo+Stellar" alt="Dr. Leo Stellar">
+                        <img class="h-48 w-full object-cover md:h-full md:w-64" src="https://placehold.co/600x800/e2e8f0/475569?text=Dr.+Leo+Stellar" alt="Dr. Leo Stellar">
                     </div>
                     <div class="p-8">
-                        <h2 class="text-3xl font-bold text-white mb-4">Biography</h2>
-                        <p class="mt-2 text-slate-400 leading-relaxed">
-                           My work seeks to unravel the mysteries of the cosmos, from the dynamics of supermassive black holes to the large-scale structure of the universe. I earned my Ph.D. in Astrophysics from the California Institute of Technology (Caltech), focusing on simulations of galaxy formation.
+                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Biography</h2>
+                        <p class="mt-2 text-slate-600 dark:text-slate-400 leading-relaxed">
+                            I am a postdoctoral research fellow specializing in theoretical astrophysics and cosmology. My work seeks to unravel the mysteries of the cosmos, from the dynamics of supermassive black holes to the large-scale structure of the universe. I earned my Ph.D. in Astrophysics from the California Institute of Technology (Caltech), focusing on simulations of galaxy formation.
                         </p>
-                        <p class="mt-4 text-slate-400 leading-relaxed">
-                          As the Dodge Family Prize Postdoctoral Fellow in Astrophysics at the  <a href="https://www.ou.edu/cas/physics-astronomy"  style="color: red;">University of Oklahoma.</a> , I am currently developing new models to understand gravitational waves and their role as messengers from the early universe. By combining analytical theory with high-performance computing, I aim to push the boundaries of our cosmic understanding.
+                        <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">
+                           At the Max Planck Institute for Astrophysics, I am currently developing new models to understand gravitational waves and their role as messengers from the early universe. By combining analytical theory with high-performance computing, I aim to push the boundaries of our cosmic understanding.
                         </p>
                     </div>
                 </div>
@@ -99,30 +120,30 @@
 
         <!-- Research Section -->
         <section id="research" class="content-section">
-             <h2 class="text-3xl font-bold text-white mb-8 text-center">Research Interests</h2>
+             <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center">Research Interests</h2>
              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Research Item 1 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                     <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/0c4a6e/e0f2fe?text=Black+Holes" alt="Black Hole Dynamics">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Black Hole Dynamics</h3>
-                        <p class="text-slate-400 text-base">Investigating the mergers of supermassive black holes and their resulting gravitational wave signatures using numerical relativity.</p>
+                        <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Black Hole Dynamics</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base">Investigating the mergers of supermassive black holes and their resulting gravitational wave signatures using numerical relativity.</p>
                     </div>
                 </div>
                 <!-- Research Item 2 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/5b21b6/ddd6fe?text=Galaxies" alt="Galaxy Evolution">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Galaxy Evolution</h3>
-                        <p class="text-slate-400 text-base">Simulating the formation and evolution of galaxies across cosmic time to understand their structure and stellar populations.</p>
+                        <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Galaxy Evolution</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base">Simulating the formation and evolution of galaxies across cosmic time to understand their structure and stellar populations.</p>
                     </div>
                 </div>
                 <!-- Research Item 3 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/be185d/fce7f3?text=Exoplanets" alt="Exoplanetary Science">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Exoplanetary Science</h3>
-                        <p class="text-slate-400 text-base">Characterizing the atmospheres of distant exoplanets to search for biomarkers and understand planetary formation.</p>
+                        <h3 class="font-bold text-xl text-slate-900 dark:text-white mb-2">Exoplanetary Science</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base">Characterizing the atmospheres of distant exoplanets to search for biomarkers and understand planetary formation.</p>
                     </div>
                 </div>
              </div>
@@ -130,70 +151,70 @@
 
         <!-- Publications Section -->
         <section id="publications" class="content-section">
-            <h2 class="text-3xl font-bold text-white mb-8">Publications</h2>
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Publications</h2>
             
             <!-- Publication Stats -->
             <div class="mb-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md">
-                    <span class="block text-4xl font-bold text-sky-400">22</span>
-                    <span class="text-sm text-slate-400">Total Publications</span>
+                <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg shadow-md">
+                    <span class="block text-4xl font-bold text-sky-600 dark:text-sky-400">22</span>
+                    <span class="text-sm text-slate-500 dark:text-slate-400">Total Publications</span>
                 </div>
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md">
-                    <span class="block text-4xl font-bold text-sky-400">18</span>
-                    <span class="text-sm text-slate-400">First-Authored</span>
+                <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg shadow-md">
+                    <span class="block text-4xl font-bold text-sky-600 dark:text-sky-400">18</span>
+                    <span class="text-sm text-slate-500 dark:text-slate-400">First-Authored</span>
                 </div>
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md">
-                    <span class="block text-4xl font-bold text-sky-400">301</span>
-                    <span class="text-sm text-slate-400">Citations</span>
+                <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg shadow-md">
+                    <span class="block text-4xl font-bold text-sky-600 dark:text-sky-400">301</span>
+                    <span class="text-sm text-slate-500 dark:text-slate-400">Citations</span>
                 </div>
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md">
-                    <span class="block text-4xl font-bold text-sky-400">9</span>
-                    <span class="text-sm text-slate-400">h-index</span>
+                <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg shadow-md">
+                    <span class="block text-4xl font-bold text-sky-600 dark:text-sky-400">9</span>
+                    <span class="text-sm text-slate-500 dark:text-slate-400">h-index</span>
                 </div>
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md col-span-2 md:col-span-1 lg:col-span-1">
-                    <span class="block text-4xl font-bold text-sky-400">9</span>
-                    <span class="text-sm text-slate-400">i10-index</span>
+                <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg shadow-md col-span-2 md:col-span-1 lg:col-span-1">
+                    <span class="block text-4xl font-bold text-sky-600 dark:text-sky-400">9</span>
+                    <span class="text-sm text-slate-500 dark:text-slate-400">i10-index</span>
                 </div>
             </div>
 
             <!-- External Links -->
             <div class="mb-10 flex flex-wrap justify-center gap-4">
-                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">NASA ADS</a>
-                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">Google Scholar</a>
-                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">Research Gate</a>
-                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">ORCID</a>
+                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">NASA ADS</a>
+                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">Google Scholar</a>
+                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">Research Gate</a>
+                 <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">ORCID</a>
             </div>
 
-            <h3 class="text-2xl font-bold text-white mb-8">Selected Publications</h3>
-            <div class="space-y-2 bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">Selected Publications</h3>
+            <div class="space-y-2 bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg">
                 <!-- Publication 1 -->
                 <div class="publication-item -mx-8 px-8 py-4 rounded-lg">
-                    <p class="text-sm text-slate-500">2023 | The Astrophysical Journal Letters</p>
-                    <h3 class="font-semibold text-lg text-slate-200">Echoes from the Abyss: Gravitational Wave Signatures of Black Hole Mergers.</h3>
-                    <p class="text-slate-400"><strong>Stellar, L.</strong>, & Einstein, A.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">2023 | The Astrophysical Journal Letters</p>
+                    <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200">Echoes from the Abyss: Gravitational Wave Signatures of Black Hole Mergers.</h3>
+                    <p class="text-slate-600 dark:text-slate-400"><strong>Stellar, L.</strong>, & Einstein, A.</p>
                     <div class="mt-2 space-x-4">
-                        <a href="#" class="text-sky-500 hover:underline">View Publication</a>
-                        <button class="text-sky-500 hover:underline" onclick="copyCitation(this, 'Stellar, L., & Einstein, A. (2023). Echoes from the Abyss: Gravitational Wave Signatures of Black Hole Mergers. The Astrophysical Journal Letters.')">Copy Citation</button>
+                        <a href="#" class="text-sky-600 dark:text-sky-500 hover:underline">View Publication</a>
+                        <button class="text-sky-600 dark:text-sky-500 hover:underline" onclick="copyCitation(this, 'Stellar, L., & Einstein, A. (2023). Echoes from the Abyss: Gravitational Wave Signatures of Black Hole Mergers. The Astrophysical Journal Letters.')">Copy Citation</button>
                     </div>
                 </div>
                 <!-- Publication 2 -->
                 <div class="publication-item -mx-8 px-8 py-4 rounded-lg">
-                    <p class="text-sm text-slate-500">2022 | Monthly Notices of the Royal Astronomical Society</p>
-                    <h3 class="font-semibold text-lg text-slate-200">Cosmic Dawn: Simulating the First Galaxies in the Universe.</h3>
-                    <p class="text-slate-400">Hubble, E., <strong>Stellar, L.</strong>, & Newton, I.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">2022 | Monthly Notices of the Royal Astronomical Society</p>
+                    <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200">Cosmic Dawn: Simulating the First Galaxies in the Universe.</h3>
+                    <p class="text-slate-600 dark:text-slate-400">Hubble, E., <strong>Stellar, L.</strong>, & Newton, I.</p>
                     <div class="mt-2 space-x-4">
-                        <a href="#" class="text-sky-500 hover:underline">View Publication</a>
-                         <button class="text-sky-500 hover:underline" onclick="copyCitation(this, 'Hubble, E., Stellar, L., & Newton, I. (2022). Cosmic Dawn: Simulating the First Galaxies in the Universe. Monthly Notices of the Royal Astronomical Society.')">Copy Citation</button>
+                        <a href="#" class="text-sky-600 dark:text-sky-500 hover:underline">View Publication</a>
+                         <button class="text-sky-600 dark:text-sky-500 hover:underline" onclick="copyCitation(this, 'Hubble, E., Stellar, L., & Newton, I. (2022). Cosmic Dawn: Simulating the First Galaxies in the Universe. Monthly Notices of the Royal Astronomical Society.')">Copy Citation</button>
                     </div>
                 </div>
                 <!-- Publication 3 -->
                 <div class="publication-item -mx-8 px-8 py-4 rounded-lg">
-                    <p class="text-sm text-slate-500">2021 | Nature Astronomy</p>
-                    <h3 class="font-semibold text-lg text-slate-200">Atmospheric Characterization of the Trappist-1 System.</h3>
-                    <p class="text-slate-400"><strong>Stellar, L.</strong>, & Kepler, J.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">2021 | Nature Astronomy</p>
+                    <h3 class="font-semibold text-lg text-slate-800 dark:text-slate-200">Atmospheric Characterization of the Trappist-1 System.</h3>
+                    <p class="text-slate-600 dark:text-slate-400"><strong>Stellar, L.</strong>, & Kepler, J.</p>
                     <div class="mt-2 space-x-4">
-                        <a href="#" class="text-sky-500 hover:underline">View Publication</a>
-                         <button class="text-sky-500 hover:underline" onclick="copyCitation(this, 'Stellar, L., & Kepler, J. (2021). Atmospheric Characterization of the Trappist-1 System. Nature Astronomy.')">Copy Citation</button>
+                        <a href="#" class="text-sky-600 dark:text-sky-500 hover:underline">View Publication</a>
+                         <button class="text-sky-600 dark:text-sky-500 hover:underline" onclick="copyCitation(this, 'Stellar, L., & Kepler, J. (2021). Atmospheric Characterization of the Trappist-1 System. Nature Astronomy.')">Copy Citation</button>
                     </div>
                 </div>
             </div>
@@ -201,9 +222,9 @@
 
         <!-- CV Section -->
         <section id="cv" class="content-section">
-            <div class="text-center bg-slate-800 p-8 sm:p-12 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-white mb-6">Curriculum Vitae</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto mb-8">
+            <div class="text-center bg-slate-100 dark:bg-slate-800 p-8 sm:p-12 rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Curriculum Vitae</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
                     My full CV contains a detailed list of my publications, research grants, conference presentations, and professional experience. Download the latest version below.
                 </p>
                 <a href="#" class="inline-flex items-center bg-sky-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-sky-700 transition-colors duration-300 shadow">
@@ -215,44 +236,44 @@
 
         <!-- Contact Section -->
         <section id="contact" class="content-section">
-             <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden">
+             <div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden">
                 <div class="grid md:grid-cols-2">
                     <div class="p-8">
-                        <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
-                        <p class="text-slate-400 mb-6">I am always looking for new collaborations and am open to discussing my research. Please don't hesitate to reach out.</p>
+                        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Get In Touch</h2>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">I am always looking for new collaborations and am open to discussing my research. Please don't hesitate to reach out.</p>
                         <div class="space-y-4">
                             <div class="flex items-center">
-                                <i data-lucide="mail" class="h-5 w-5 mr-3 text-sky-500"></i>
+                                <i data-lucide="mail" class="h-5 w-5 mr-3 text-sky-600 dark:text-sky-500"></i>
                                 <span>l.stellar [at] mpa-garching.mpg.de</span>
                             </div>
                             <div class="flex items-center">
-                                <i data-lucide="linkedin" class="h-5 w-5 mr-3 text-sky-500"></i>
+                                <i data-lucide="linkedin" class="h-5 w-5 mr-3 text-sky-600 dark:text-sky-500"></i>
                                 <a href="#" class="hover:underline">linkedin.com/in/leo-stellar</a>
                             </div>
                              <div class="flex items-center">
-                                <i data-lucide="twitter" class="h-5 w-5 mr-3 text-sky-500"></i>
+                                <i data-lucide="twitter" class="h-5 w-5 mr-3 text-sky-600 dark:text-sky-500"></i>
                                 <a href="#" class="hover:underline">@LeoStellarAstro</a>
                             </div>
                              <div class="flex items-center">
-                                <i data-lucide="map-pin" class="h-5 w-5 mr-3 text-sky-500"></i>
+                                <i data-lucide="map-pin" class="h-5 w-5 mr-3 text-sky-600 dark:text-sky-500"></i>
                                 <span>Max Planck Institute, Garching, Germany</span>
                             </div>
                         </div>
                     </div>
-                    <div class="p-8 bg-slate-900/50">
-                         <h3 class="text-2xl font-bold text-white mb-4">Send a Message</h3>
+                    <div class="p-8 bg-slate-50 dark:bg-slate-900/50">
+                         <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Send a Message</h3>
                          <form action="#" method="POST" class="space-y-4">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-slate-300">Name</label>
-                                <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-white">
+                                <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-slate-900 dark:text-white">
                             </div>
                              <div>
-                                <label for="email" class="block text-sm font-medium text-slate-300">Email</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-white">
+                                <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-slate-900 dark:text-white">
                             </div>
                              <div>
-                                <label for="message" class="block text-sm font-medium text-slate-300">Message</label>
-                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-white"></textarea>
+                                <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-slate-900 dark:text-white"></textarea>
                             </div>
                             <div>
                                 <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
@@ -268,8 +289,8 @@
     </main>
     
     <!-- Footer -->
-    <footer class="bg-slate-800 border-t border-slate-700 mt-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-slate-400">
+    <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-slate-500 dark:text-slate-400">
              &copy; <span id="year"></span> Dr. Leo Stellar. All Rights Reserved.
         </div>
     </footer>
@@ -280,94 +301,138 @@
     </div>
 
     <script>
-        // Lucide Icons
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Navigation
-        const navLinks = document.querySelectorAll('.nav-link');
-        const contentSections = document.querySelectorAll('.content-section');
-
-        function updateContent(hash) {
-            contentSections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // This is needed for the mobile menu links
-            const allNavLinks = document.querySelectorAll('.nav-link');
-            allNavLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === hash) {
-                    link.classList.add('active');
-                }
-            });
-
-            const activeSection = document.querySelector(hash);
-            if(activeSection) {
-                 activeSection.classList.add('active');
-            } else {
-                // Default to home if hash is invalid
-                document.querySelector('#home').classList.add('active');
-                 document.querySelectorAll('a[href="#home"]').forEach(l => l.classList.add('active'));
-            }
-        }
-        
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                window.location.hash = targetId;
-                if(mobileMenu.classList.contains('hidden') === false) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-
-        // Handle hash changes for back/forward navigation
-        window.addEventListener('hashchange', () => {
-            const hash = window.location.hash || '#home';
-            updateContent(hash);
-        });
-        
-        // Initial page load
-        document.addEventListener('DOMContentLoaded', () => {
-             const hash = window.location.hash || '#home';
-             updateContent(hash);
-        });
-
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Copy citation function
-        function copyCitation(button, text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            // use execCommand for broader browser support in iframes
-            try {
-                document.execCommand('copy');
-                showClipboardMessage();
-            } catch (err) {
-                console.error('Failed to copy text: ', err);
-                alert('Failed to copy text. Please copy it manually.');
-            }
-            document.body.removeChild(textarea);
-        }
-
+        // These two functions are called by `onclick` attributes, so they need to be in the global scope.
         function showClipboardMessage() {
             const message = document.getElementById('clipboard-message');
+            message.textContent = "Citation copied to clipboard!";
             message.classList.remove('opacity-0');
             setTimeout(() => {
                 message.classList.add('opacity-0');
             }, 2000);
         }
+
+        function copyCitation(button, text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showClipboardMessage();
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                const message = document.getElementById('clipboard-message');
+                message.textContent = "Copying failed.";
+                message.classList.remove('opacity-0');
+                setTimeout(() => {
+                    message.classList.add('opacity-0');
+                }, 2000);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Wait until the DOM is fully loaded before running scripts that interact with it.
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Initialize Lucide Icons
+            lucide.createIcons();
+
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    if(mobileMenu) mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // --- Single-Page Navigation Logic ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            function updateContent(hash) {
+                contentSections.forEach(section => {
+                    if (section) section.classList.remove('active');
+                });
+                
+                const allNavLinks = document.querySelectorAll('.nav-link');
+                allNavLinks.forEach(link => {
+                    if (link) {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === hash) {
+                            link.classList.add('active');
+                        }
+                    }
+                });
+
+                try {
+                    const activeSection = document.querySelector(hash);
+                    if(activeSection) {
+                        activeSection.classList.add('active');
+                    } else {
+                        document.querySelector('#home').classList.add('active');
+                        document.querySelectorAll('a[href="#home"]').forEach(l => l.classList.add('active'));
+                    }
+                } catch (e) {
+                    console.error("Could not find section for hash:", hash);
+                    document.querySelector('#home').classList.add('active');
+                    document.querySelectorAll('a[href="#home"]').forEach(l => l.classList.add('active'));
+                }
+            }
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    window.location.hash = targetId;
+                    if(mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+            
+            window.addEventListener('hashchange', () => {
+                const hash = window.location.hash || '#home';
+                updateContent(hash);
+            });
+            
+            // Set initial page content based on hash
+            updateContent(window.location.hash || '#home');
+
+            // --- Footer Year ---
+            const yearEl = document.getElementById('year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+
+            // --- THEME TOGGLE LOGIC ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+            // This function sets the icon state based on the current theme
+            const updateThemeIcons = () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    if(themeToggleDarkIcon) themeToggleDarkIcon.classList.add('hidden');
+                    if(themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
+                } else {
+                    if(themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
+                    if(themeToggleLightIcon) themeToggleLightIcon.classList.add('hidden');
+                }
+            }
+
+            // Set initial icon state
+            updateThemeIcons();
+
+            // Add listener for the toggle button
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', function() {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                    updateThemeIcons();
+                });
+            }
+        });
     </script>
 </body>
 </html>
