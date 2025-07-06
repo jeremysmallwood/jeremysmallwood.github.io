@@ -8,9 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        /* No smooth scrolling on the html element to ensure instant jumps to the top */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0f172a; /* slate-900 */
@@ -89,7 +87,7 @@
             <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden">
                 <div class="md:flex">
                     <div class="md:shrink-0">
-                        <img class="h-48 w-full object-cover md:h-full md:w-64" src="profile_pic.jpeg" alt="Dr. Leo Stellar">
+                        <img class="h-48 w-full object-cover md:h-full md:w-64" src="https://placehold.co/600x800/1e293b/94a3b8?text=Dr.+Leo+Stellar" alt="Dr. Leo Stellar">
                     </div>
                     <div class="p-8">
                         <h2 class="text-3xl font-bold text-white mb-4">Biography</h2>
@@ -399,91 +397,58 @@
             document.body.removeChild(textarea);
         }
 
-        // Wait until the DOM is fully loaded before running scripts that interact with it.
         document.addEventListener('DOMContentLoaded', function() {
             
-            // Initialize Lucide Icons
             lucide.createIcons();
 
-            // --- DOM Element Variables ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const navLinks = document.querySelectorAll('.nav-link');
             const contentSections = document.querySelectorAll('.content-section');
             const yearEl = document.getElementById('year');
 
-            // --- Event Listeners ---
-
-            // Mobile Menu Toggle
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
+            function showSection(hash) {
+                contentSections.forEach(section => {
+                    section.classList.toggle('active', `#${section.id}` === hash);
+                });
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === hash);
                 });
             }
 
-            // Single-Page Navigation Link Clicks
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    window.scrollTo(0, 0); // Scroll to top immediately on click
-                    const targetId = this.getAttribute('href');
-                    window.location.hash = targetId; // This will trigger the hashchange event
-                    // Close mobile menu if it's open
-                    if(mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    const targetHash = this.getAttribute('href');
+                    
+                    // Always scroll to top
+                    window.scrollTo({ top: 0, behavior: 'auto' });
+
+                    // Update the hash in the URL, which triggers the hashchange event
+                    window.location.hash = targetHash;
+
+                    // Hide mobile menu if open
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
                 });
             });
-            
-            // Handle browser back/forward navigation
-            window.addEventListener('hashchange', () => {
-                const hash = window.location.hash || '#home';
-                updateContent(hash, false); // false indicates not to scroll again
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
-            
-            // --- Core Functions ---
 
-            function updateContent(hash, shouldScroll = true) {
-                if (shouldScroll) {
-                    window.scrollTo(0, 0);
-                }
+            window.addEventListener('hashchange', () => {
+                const currentHash = window.location.hash || '#home';
+                showSection(currentHash);
+            });
 
-                // Deactivate all sections
-                contentSections.forEach(section => {
-                    if (section) section.classList.remove('active');
-                });
-                
-                // Deactivate all nav links
-                navLinks.forEach(link => {
-                    if (link) link.classList.remove('active');
-                });
+            // Initial load
+            const initialHash = window.location.hash || '#home';
+            showSection(initialHash);
+            // Force scroll to top on initial load, especially on refresh
+            setTimeout(() => window.scrollTo({ top: 0, behavior: 'auto' }), 0);
 
-                // Activate the target section and corresponding nav links
-                try {
-                    const activeSection = document.querySelector(hash);
-                    if(activeSection) {
-                        activeSection.classList.add('active');
-                        // Activate nav links that point to this section
-                        document.querySelectorAll(`.nav-link[href="${hash}"]`).forEach(l => l.classList.add('active'));
-                    } else {
-                        // Default to home if hash is invalid
-                        document.querySelector('#home').classList.add('active');
-                        document.querySelectorAll('.nav-link[href="#home"]').forEach(l => l.classList.add('active'));
-                    }
-                } catch (e) {
-                    console.error("Error updating content for hash:", hash, e);
-                    // Fallback to home on error
-                    document.querySelector('#home').classList.add('active');
-                    document.querySelectorAll('.nav-link[href="#home"]').forEach(l => l.classList.add('active'));
-                }
-            }
-
-            // --- Initial Setup ---
-
-            // Set initial page content based on the URL hash
-            updateContent(window.location.hash || '#home');
-
-            // Set current year in footer
             if (yearEl) {
                 yearEl.textContent = new Date().getFullYear();
             }
