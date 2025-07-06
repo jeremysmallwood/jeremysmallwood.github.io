@@ -63,7 +63,7 @@
                         <a href="#contact" class="nav-link font-medium pb-1">Contact</a>
                     </nav>
                     <div class="md:hidden ml-4">
-                        <button id="mobile-menu-button" class="text-slate-300">
+                        <button id="mobile-menu-button" class="text-slate-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
                             <i data-lucide="menu"></i>
                         </button>
                     </div>
@@ -89,7 +89,7 @@
             <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden">
                 <div class="md:flex">
                     <div class="md:shrink-0">
-                        <img class="h-48 w-full object-cover md:h-full md:w-64" src="profile_pic.jpeg" alt="Dr. Leo Stellar">
+                        <img class="h-48 w-full object-cover md:h-full md:w-64" src="https://placehold.co/600x800/1e293b/94a3b8?text=Dr.+Leo+Stellar" alt="Dr. Leo Stellar">
                     </div>
                     <div class="p-8">
                         <h2 class="text-3xl font-bold text-white mb-4">Biography</h2>
@@ -405,77 +405,86 @@
             // Initialize Lucide Icons
             lucide.createIcons();
 
-            // Mobile Menu Toggle
+            // --- DOM Element Variables ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenuButton) {
-                mobileMenuButton.addEventListener('click', () => {
-                    if(mobileMenu) mobileMenu.classList.toggle('hidden');
-                });
-            }
-
-            // --- Single-Page Navigation Logic ---
             const navLinks = document.querySelectorAll('.nav-link');
             const contentSections = document.querySelectorAll('.content-section');
+            const yearEl = document.getElementById('year');
 
-            function updateContent(hash) {
-                // Scroll to the top of the page
-                window.scrollTo(0, 0);
+            // --- Event Listeners ---
 
-                contentSections.forEach(section => {
-                    if (section) section.classList.remove('active');
+            // Mobile Menu Toggle
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
                 });
-                
-                const allNavLinks = document.querySelectorAll('.nav-link');
-                allNavLinks.forEach(link => {
-                    if (link) {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === hash) {
-                            link.classList.add('active');
-                        }
-                    }
-                });
-
-                try {
-                    const activeSection = document.querySelector(hash);
-                    if(activeSection) {
-                        activeSection.classList.add('active');
-                    } else {
-                        document.querySelector('#home').classList.add('active');
-                        document.querySelectorAll('a[href="#home"]').forEach(l => l.classList.add('active'));
-                    }
-                } catch (e) {
-                    console.error("Could not find section for hash:", hash);
-                    document.querySelector('#home').classList.add('active');
-                    document.querySelectorAll('a[href="#home"]').forEach(l => l.classList.add('active'));
-                }
             }
-            
-            document.querySelectorAll('.nav-link').forEach(link => {
+
+            // Single-Page Navigation Link Clicks
+            navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     window.location.hash = targetId;
+                    // Close mobile menu if it's open
                     if(mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                     }
                 });
             });
             
+            // Handle browser back/forward navigation
             window.addEventListener('hashchange', () => {
                 const hash = window.location.hash || '#home';
                 updateContent(hash);
             });
             
-            // Set initial page content based on hash
+            // --- Core Functions ---
+
+            function updateContent(hash) {
+                // Scroll to the top of the page
+                window.scrollTo(0, 0);
+
+                // Deactivate all sections
+                contentSections.forEach(section => {
+                    if (section) section.classList.remove('active');
+                });
+                
+                // Deactivate all nav links
+                navLinks.forEach(link => {
+                    if (link) link.classList.remove('active');
+                });
+
+                // Activate the target section and corresponding nav links
+                try {
+                    const activeSection = document.querySelector(hash);
+                    if(activeSection) {
+                        activeSection.classList.add('active');
+                        // Activate nav links that point to this section
+                        document.querySelectorAll(`.nav-link[href="${hash}"]`).forEach(l => l.classList.add('active'));
+                    } else {
+                        // Default to home if hash is invalid
+                        document.querySelector('#home').classList.add('active');
+                        document.querySelectorAll('.nav-link[href="#home"]').forEach(l => l.classList.add('active'));
+                    }
+                } catch (e) {
+                    console.error("Error updating content for hash:", hash, e);
+                    // Fallback to home on error
+                    document.querySelector('#home').classList.add('active');
+                    document.querySelectorAll('.nav-link[href="#home"]').forEach(l => l.classList.add('active'));
+                }
+            }
+
+            // --- Initial Setup ---
+
+            // Set initial page content based on the URL hash
             updateContent(window.location.hash || '#home');
 
-            // --- Footer Year ---
-            const yearEl = document.getElementById('year');
+            // Set current year in footer
             if (yearEl) {
                 yearEl.textContent = new Date().getFullYear();
             }
-
         });
     </script>
 </body>
