@@ -10,16 +10,17 @@
         /* No smooth scrolling on the html element to ensure instant jumps to the top */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* slate-900 */
-            color: #cbd5e1; /* slate-300 */
+            background-color: #f8fafc; /* slate-50 */
+            color: #475569; /* slate-600 */
         }
         .nav-link {
             transition: color 0.3s, border-bottom-color 0.3s;
             border-bottom: 2px solid transparent;
+            color: #475569; /* slate-600 */
         }
         .nav-link:hover, .nav-link.active {
-            color: #0ea5e9; /* sky-500 */
-            border-bottom-color: #0ea5e9; /* sky-500 */
+            color: #0284c7; /* sky-600 */
+            border-bottom-color: #0284c7; /* sky-600 */
         }
         .content-section {
             display: none;
@@ -29,10 +30,10 @@
             display: block;
         }
         .publication-item:hover {
-            background-color: #1e293b; /* slate-800 */
+            background-color: #f1f5f9; /* slate-100 */
         }
         ::placeholder {
-            color: #64748b; /* slate-500 */
+            color: #94a3b8; /* slate-400 */
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -40,15 +41,15 @@
         }
     </style>
 </head>
-<body class="text-slate-300">
+<body class="text-slate-700">
 
     <!-- Header & Navigation -->
-    <header class="bg-slate-900/80 backdrop-blur-md shadow-lg shadow-sky-900/10 sticky top-0 z-50">
+    <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-white">Dr. Jeremy L. Smallwood</h1>
-                    <span class="ml-3 text-md text-slate-400 hidden sm:inline">Dodge Family Prize Postdoctoral Fellow in Astrophysics</span>
+                    <h1 class="text-2xl font-bold text-slate-900">Dr. Jeremy L. Smallwood</h1>
+                    <span class="ml-3 text-md text-slate-500 hidden sm:inline">Dodge Family Prize Postdoctoral Fellow in Astrophysics</span>
                 </div>
                 <div class="flex items-center">
                     <nav class="hidden md:flex items-center space-x-8">
@@ -60,7 +61,7 @@
                         <a href="#contact" class="nav-link font-medium pb-1">Contact</a>
                     </nav>
                     <div class="md:hidden ml-4">
-                        <button id="mobile-menu-button" class="text-slate-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <button id="mobile-menu-button" class="text-slate-800 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-sky-500">
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                             </svg>
@@ -70,7 +71,7 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 pb-4">
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
             <a href="#home" class="block py-2 px-4 text-sm nav-link active">Bio</a>
             <a href="#research" class="block py-2 px-4 text-sm nav-link">Research</a>
             <a href="#mentorship" class="block py-2 px-4 text-sm nav-link">Mentorship</a>
@@ -85,18 +86,18 @@
 
         <!-- Bio Section -->
         <section id="home" class="content-section active">
-            <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden">
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="md:flex">
                     <div class="md:shrink-0">
                         <img class="h-48 w-full object-cover md:h-full md:w-64" src="profile_pic.jpeg" alt="Dr. Jeremy L. Smallwood">
                     </div>
                     <div class="p-8">
-                        <h2 class="text-3xl font-bold text-white mb-4">Biography</h2>
-                        <p class="mt-2 text-slate-400 leading-relaxed">
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Biography</h2>
+                        <p class="mt-2 text-slate-600 leading-relaxed">
                             I am a theoretical and computational astrophysicist studying the dynamic processes that shape planetary systems. My research combines theoretical modeling and numerical simulations to explore planet formation, stellar dynamics, and the evolution of protoplanetary disks—particularly in complex multi-star environments.
                         </p>
-                        <p class="mt-4 text-slate-400 leading-relaxed">
-                            I earned my Ph.D. in Astronomy from the University of Nevada, Las Vegas, where I developed simulations of protoplanetary disks in multi-star systems. Currently, at the <a href="https://www.ou.edu/cas/physics-astronomy/people/directory/post-docs/jeremy-smallwood" target="_blank" rel="noopener noreferrer" class="text-sky-500 hover:underline">University of Oklahoma</a>, my work aims to uncover the physical mechanisms that govern planet formation and system stability, bridging gaps between theory and observations.
+                        <p class="mt-4 text-slate-600 leading-relaxed">
+                            I earned my Ph.D. in Astronomy from the University of Nevada, Las Vegas, where I developed simulations of protoplanetary disks in multi-star systems. Currently, at the <a href="https://www.ou.edu/cas/physics-astronomy/people/directory/post-docs/jeremy-smallwood" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">University of Oklahoma</a>, my work aims to uncover the physical mechanisms that govern planet formation and system stability, bridging gaps between theory and observations.
                         </p>
                     </div>
                 </div>
@@ -105,86 +106,86 @@
 
         <!-- Research Section -->
         <section id="research" class="content-section">
-             <h2 class="text-3xl font-bold text-white mb-8 text-center">Research Interests</h2>
+             <h2 class="text-3xl font-bold text-slate-900 mb-8 text-center">Research Interests</h2>
              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Research Item 1 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                     <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/0c4a6e/e0f2fe?text=Circumbinary+Disks" alt="Circumbinary Disk Alignment">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Circumbinary Disk Alignment</h3>
-                        <p class="text-slate-400 text-base">Investigating the coplanar or polar alignment of protoplanetary disks around binary star systems.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Circumbinary Disk Alignment</h3>
+                        <p class="text-slate-600 text-base">Investigating the coplanar or polar alignment of protoplanetary disks around binary star systems.</p>
                     </div>
                 </div>
                 <!-- Research Item 2 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/5b21b6/ddd6fe?text=Accretion+Streams" alt="Accretion Streams">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Circumbinary Accretion</h3>
-                        <p class="text-slate-400 text-base">Simulating the evolution of gas and dust in circumbinary disks, focusing on how material flows through the binary cavity via accretion streamers. These streams dynamically replenish the circumstellar disks and drive accretion onto the binary stars, shaping their orbital evolution and potential planet-forming environments.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Circumbinary Accretion</h3>
+                        <p class="text-slate-600 text-base">Simulating the evolution of gas and dust in circumbinary disks, focusing on how material flows through the binary cavity via accretion streamers. These streams dynamically replenish the circumstellar disks and drive accretion onto the binary stars, shaping their orbital evolution and potential planet-forming environments.</p>
                     </div>
                 </div>
                 <!-- Research Item 3 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/be185d/fce7f3?text=Circumbinary+Exoplanets" alt="Circumbinary+Exoplanets">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Circumbinary Exoplanets</h3>
-                        <p class="text-slate-400 text-base">I investigate the formation mechanisms of circumbinary exoplanets, tracing their origins in the complex environments of circumbinary disks. My work particularly explores how tilted and warped disk configurations influence planet formation processes, including gravitational instabilities, dust dynamics, and planetesimal growth in these perturbed systems.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Circumbinary Exoplanets</h3>
+                        <p class="text-slate-600 text-base">I investigate the formation mechanisms of circumbinary exoplanets, tracing their origins in the complex environments of circumbinary disks. My work particularly explores how tilted and warped disk configurations influence planet formation processes, including gravitational instabilities, dust dynamics, and planetesimal growth in these perturbed systems.</p>
                     </div>
                 </div>
                 <!-- Research Item 4 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                     <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/1e40af/dbeafe?text=Dusty+Circumbinary+Disks" alt="Dusty Circumbinary Disks">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Dusty Circumbinary Disks</h3>
-                        <p class="text-slate-400 text-base">Polar-aligned circumbinary disks produce unique dust dynamics, creating localized concentrations akin to "traffic jams" in the disk midplane. These dust accumulations may serve as preferential sites for planetesimal growth, potentially explaining the formation pathways of polar circumbinary planets.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Dusty Circumbinary Disks</h3>
+                        <p class="text-slate-600 text-base">Polar-aligned circumbinary disks produce unique dust dynamics, creating localized concentrations akin to "traffic jams" in the disk midplane. These dust accumulations may serve as preferential sites for planetesimal growth, potentially explaining the formation pathways of polar circumbinary planets.</p>
                     </div>
                 </div>
                 <!-- Research Item 5 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/7e22ce/f3e8ff?text=Stellar+Flybys" alt="Stellar Flybys">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Stellar Flybys</h3>
-                        <p class="text-slate-400 text-base">Stellar flybys - unbound stars passing near protoplanetary disks - can dynamically perturb disk material, generating observable substructures. These gravitational interactions may explain the rings, gaps, and asymmetries frequently detected in high-resolution disk observations.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Stellar Flybys</h3>
+                        <p class="text-slate-600 text-base">Stellar flybys - unbound stars passing near protoplanetary disks - can dynamically perturb disk material, generating observable substructures. These gravitational interactions may explain the rings, gaps, and asymmetries frequently detected in high-resolution disk observations.</p>
                     </div>
                 </div>
                 <!-- Research Item 6 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/991b1b/fee2e2?text=Synthetic+Observations" alt="Synthetic Observations">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Synthetic Observations</h3>
-                        <p class="text-slate-400 text-base">Dust rings in misaligned circumbinary disks represent prime observational targets for current facilities like ALMA and future instruments including ngVLA and SKA. These distinctive features offer unique insights into disk dynamics and planet formation processes in binary systems.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Synthetic Observations</h3>
+                        <p class="text-slate-600 text-base">Dust rings in misaligned circumbinary disks represent prime observational targets for current facilities like ALMA and future instruments including ngVLA and SKA. These distinctive features offer unique insights into disk dynamics and planet formation processes in binary systems.</p>
                     </div>
                 </div>
                  <!-- Research Item 7 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/4d7c0f/d9f99d?text=Circumtriple+Disks+and+Planets" alt="Circumtriple Disks and Planets">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Circumtriple Disks and Planets</h3>
-                        <p class="text-slate-400 text-base">The complex disk structure observed around GW Ori - the first known circumtriple protoplanetary disk - may provide direct evidence of a circumtriple planet in formation. This unprecedented system could revolutionize our understanding of planet formation in multiple-star environments.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Circumtriple Disks and Planets</h3>
+                        <p class="text-slate-600 text-base">The complex disk structure observed around GW Ori - the first known circumtriple protoplanetary disk - may provide direct evidence of a circumtriple planet in formation. This unprecedented system could revolutionize our understanding of planet formation in multiple-star environments.</p>
                     </div>
                 </div>
                 <!-- Research Item 8 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/c2410c/ffedd5?text=White+Dwarf+Pollution" alt="White Dwarf Pollution">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">White Dwarf Pollution</h3>
-                        <p class="text-slate-400 text-base">The persistent metal contamination observed in white dwarf atmospheres provides compelling evidence of ongoing planetary system evolution. These metals likely originate from tidally disrupted asteroids, dynamically perturbed by surviving planets in these ancient systems.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">White Dwarf Pollution</h3>
+                        <p class="text-slate-600 text-base">The persistent metal contamination observed in white dwarf atmospheres provides compelling evidence of ongoing planetary system evolution. These metals likely originate from tidally disrupted asteroids, dynamically perturbed by surviving planets in these ancient systems.</p>
                     </div>
                 </div>
                 <!-- Research Item 9 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/6d28d9/ede9fe?text=Fast+Radio+Bursts" alt="Fast Radio Bursts">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Fast Radio Bursts</h3>
-                        <p class="text-slate-400 text-base">While the astrophysical origin of fast radio bursts (FRBs) remains unresolved, one compelling hypothesis suggests they may result from asteroid-neutron star interactions. In this scenario, accreted asteroidal material undergoes rapid disruption upon impact with the neutron star surface, potentially generating the extreme electromagnetic transients observed as FRBs.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Fast Radio Bursts</h3>
+                        <p class="text-slate-600 text-base">While the astrophysical origin of fast radio bursts (FRBs) remains unresolved, one compelling hypothesis suggests they may result from asteroid-neutron star interactions. In this scenario, accreted asteroidal material undergoes rapid disruption upon impact with the neutron star surface, potentially generating the extreme electromagnetic transients observed as FRBs.</p>
                     </div>
                 </div>
                  <!-- Research Item 10 -->
-                <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                      <img class="h-48 w-full object-cover" src="https://placehold.co/400x300/14b8a6/f0fdfa?text=Planetary+Secular+Resonances" alt="Planetary Secular Resonances">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl text-white mb-2">Planetary Secular Resonances</h3>
-                        <p class="text-slate-400 text-base">Secular resonances between asteroids and giant planets can dynamically perturb minor bodies onto planet-crossing orbits. This process may serve as a fundamental delivery mechanism for volatiles and organic materials, potentially governing the distribution of key prebiotic compounds throughout planetary systems.</p>
+                        <h3 class="font-bold text-xl text-slate-900 mb-2">Planetary Secular Resonances</h3>
+                        <p class="text-slate-600 text-base">Secular resonances between asteroids and giant planets can dynamically perturb minor bodies onto planet-crossing orbits. This process may serve as a fundamental delivery mechanism for volatiles and organic materials, potentially governing the distribution of key prebiotic compounds throughout planetary systems.</p>
                     </div>
                 </div>
              </div>
@@ -192,104 +193,104 @@
 
         <!-- Mentorship Section -->
         <section id="mentorship" class="content-section">
-            <h2 class="text-3xl font-bold text-white mb-4 text-center">Mentorship & Student Projects</h2>
-            <p class="text-left text-slate-400 max-w-3xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4 text-center">Mentorship & Student Projects</h2>
+            <p class="text-center text-slate-600 max-w-3xl mx-auto mb-12">
                 I am passionate about mentoring the next generation of scientists. My goal is to foster a collaborative and inclusive environment where students can develop their critical thinking skills and pursue their own research interests. Below are some examples of ongoing student-led projects.
             </p>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Project 1 -->
-                <div class="bg-slate-800 p-6 rounded-xl shadow-lg">
-                    <h3 class="font-bold text-xl text-white mb-2">Stellar Flybys Perturbing Protoplanetary Disks</h3>
-                    <p class="text-slate-400 mb-3"><strong>Student:</strong> Wei-Shan Su (Masters Student)</p>
-                    <p class="text-slate-400 text-sm">This project uses hydrodynamical simulations of a protoplanetary disk encountering a stellar flyby.</p>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="font-bold text-xl text-slate-900 mb-2">Stellar Flybys Perturbing Protoplanetary Disks</h3>
+                    <p class="text-slate-600 mb-3"><strong>Student:</strong> Wei-Shan Su (Masters Student)</p>
+                    <p class="text-slate-600 text-sm">This project uses hydrodynamical simulations of a protoplanetary disk encountering a stellar flyby.</p>
                 </div>
                 <!-- Project 2 -->
-                <div class="bg-slate-800 p-6 rounded-xl shadow-lg">
-                    <h3 class="font-bold text-xl text-white mb-2">Accretion onto Unequal-mass Binary Star Systems</h3>
-                    <p class="text-slate-400 mb-3"><strong>Student:</strong> Ruiqi Yang (Masters Student)</p>
-                    <p class="text-slate-400 text-sm">Utilizing smoothed particle hydrodynmical (SPH) simulations to further understand the accretion processes around unequal-mass binary systems.</p>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="font-bold text-xl text-slate-900 mb-2">Accretion onto Unequal-mass Binary Star Systems</h3>
+                    <p class="text-slate-600 mb-3"><strong>Student:</strong> Ruiqi Yang (Masters Student)</p>
+                    <p class="text-slate-600 text-sm">Utilizing smoothed particle hydrodynmical (SPH) simulations to further understand the accretion processes around unequal-mass binary systems.</p>
                 </div>
                  <!-- Project 3 -->
-                <div class="bg-slate-800 p-6 rounded-xl shadow-lg">
-                    <h3 class="font-bold text-xl text-white mb-2">Misaligned Planet-Disk Interactions</h3>
-                    <p class="text-slate-400 mb-3"><strong>Student:</strong> Ho Wan Cheng (Masters Student)</p>
-                    <p class="text-slate-400 text-sm">Developing hydrodynmical models to analysis the signatures within protoplanetary disks induced by inclined planets.</p>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="font-bold text-xl text-slate-900 mb-2">Misaligned Planet-Disk Interactions</h3>
+                    <p class="text-slate-600 mb-3"><strong>Student:</strong> Ho Wan Cheng (Masters Student)</p>
+                    <p class="text-slate-600 text-sm">Developing hydrodynmical models to analysis the signatures within protoplanetary disks induced by inclined planets.</p>
                 </div>
                  <!-- Project 4 -->
-                <div class="bg-slate-800 p-6 rounded-xl shadow-lg">
-                    <h3 class="font-bold text-xl text-white mb-2">Fast-Radio Bursts (FRBs) Triggered by the von Ziepel-Kozai-Lidov (vZKL) Instability</h3>
-                    <p class="text-slate-400 mb-3"><strong>Student:</strong> Zhizhen Qin (Ph.D. Student)</p>
-                    <p class="text-slate-400 text-sm">Utilizing N-body simulations of a neutron star accreting asteriods triggered by the vZKL instability in order to explain repeating FRBs.</p>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="font-bold text-xl text-slate-900 mb-2">Fast-Radio Bursts (FRBs) Triggered by the von Ziepel-Kozai-Lidov (vZKL) Instability</h3>
+                    <p class="text-slate-600 mb-3"><strong>Student:</strong> Zhizhen Qin (Ph.D. Student)</p>
+                    <p class="text-slate-600 text-sm">Utilizing N-body simulations of a neutron star accreting asteriods triggered by the vZKL instability in order to explain repeating FRBs.</p>
                 </div>
             </div>
         </section>
 
         <!-- Publications Section -->
         <section id="publications" class="content-section">
-            <h2 class="text-3xl font-bold text-white mb-8">Publications</h2>
+            <h2 class="text-3xl font-bold text-slate-900 mb-8">Publications</h2>
             
             <!-- Publication Stats -->
             <div class="mb-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md">
-                    <span class="block text-4xl font-bold text-sky-400">23</span>
-                    <span class="text-sm text-slate-400">Total Publications</span>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <span class="block text-4xl font-bold text-sky-600">23</span>
+                    <span class="text-sm text-slate-500">Total Publications</span>
                 </div>
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md">
-                    <span class="block text-4xl font-bold text-sky-400">19</span>
-                    <span class="text-sm text-slate-400">First-Authored</span>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <span class="block text-4xl font-bold text-sky-600">19</span>
+                    <span class="text-sm text-slate-500">First-Authored</span>
                 </div>
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md">
-                    <span class="block text-4xl font-bold text-sky-400">419</span>
-                    <span class="text-sm text-slate-400">Citations</span>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <span class="block text-4xl font-bold text-sky-600">419</span>
+                    <span class="text-sm text-slate-500">Citations</span>
                 </div>
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md">
-                    <span class="block text-4xl font-bold text-sky-400">12</span>
-                    <span class="text-sm text-slate-400">h-index</span>
+                <div class="bg-white p-4 rounded-lg shadow-md">
+                    <span class="block text-4xl font-bold text-sky-600">12</span>
+                    <span class="text-sm text-slate-500">h-index</span>
                 </div>
-                <div class="bg-slate-800 p-4 rounded-lg shadow-md col-span-2 md:col-span-1 lg:col-span-1">
-                    <span class="block text-4xl font-bold text-sky-400">13</span>
-                    <span class="text-sm text-slate-400">i10-index</span>
+                <div class="bg-white p-4 rounded-lg shadow-md col-span-2 md:col-span-1 lg:col-span-1">
+                    <span class="block text-4xl font-bold text-sky-600">13</span>
+                    <span class="text-sm text-slate-500">i10-index</span>
                 </div>
             </div>
 
             <!-- External Links -->
             <div class="mb-10 flex flex-wrap justify-center gap-4">
-                 <a href="https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSmallwood%2C%20J%2FSmallwood%2C%20Jeremy%20L%22&fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSmallwood%2C%20J%2FSmallwood%2C%20Jeremy%20L%22)&fq_database=(database%3Aastronomy%20OR%20database%3Aphysics)&p_=0&q=author%3A(%22smallwood%2C%20Jeremy%20L%22)&sort=date%20desc%2C%20bibcode%20desc" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">NASA ADS</a>
-                 <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AL3_zijMne_2oJN2wA3egRQezupQoWZEH7vCMj2JPRLFUCUXfDNfSXzSxyyonYXUt5g0Fx1PCSrWIo0nDdo3_g&user=r_Yas30AAAAJ" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">Google Scholar</a>
-                 <a href="https://www.researchgate.net/profile/Jeremy-Smallwood-3/research" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">Research Gate</a>
-                 <a href="https://orcid.org/0000-0002-4314-398X" target="_blank" rel="noopener noreferrer" class="bg-slate-700 hover:bg-slate-600 text-slate-200 font-medium py-2 px-5 rounded-lg transition-colors">ORCID</a>
+                 <a href="https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSmallwood%2C%20J%2FSmallwood%2C%20Jeremy%20L%22&fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSmallwood%2C%20J%2FSmallwood%2C%20Jeremy%20L%22)&fq_database=(database%3Aastronomy%20OR%20database%3Aphysics)&p_=0&q=author%3A(%22smallwood%2C%20Jeremy%20L%22)&sort=date%20desc%2C%20bibcode%20desc" target="_blank" rel="noopener noreferrer" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-5 rounded-lg transition-colors">NASA ADS</a>
+                 <a href="https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AL3_zijMne_2oJN2wA3egRQezupQoWZEH7vCMj2JPRLFUCUXfDNfSXzSxyyonYXUt5g0Fx1PCSrWIo0nDdo3_g&user=r_Yas30AAAAJ" target="_blank" rel="noopener noreferrer" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-5 rounded-lg transition-colors">Google Scholar</a>
+                 <a href="https://www.researchgate.net/profile/Jeremy-Smallwood-3/research" target="_blank" rel="noopener noreferrer" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-5 rounded-lg transition-colors">Research Gate</a>
+                 <a href="https://orcid.org/0000-0002-4314-398X" target="_blank" rel="noopener noreferrer" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-5 rounded-lg transition-colors">ORCID</a>
             </div>
 
-            <h3 class="text-2xl font-bold text-white mb-8">Selected Publications</h3>
-            <div class="space-y-2 bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg">
+            <h3 class="text-2xl font-bold text-slate-900 mb-8">Selected Publications</h3>
+            <div class="space-y-2 bg-white p-6 sm:p-8 rounded-xl shadow-md">
                 <!-- Publication 1 -->
                 <div class="publication-item -mx-8 px-8 py-4 rounded-lg">
                     <p class="text-sm text-slate-500">2025 | Monthly Notices of the Royal Astronomical Society Letters</p>
-                    <h3 class="font-semibold text-lg text-slate-200">Polar alignment of a circumbinary disc around a brown dwarf binary.</h3>
-                    <p class="text-slate-400"><strong class="text-sky-400">Smallwood, J. L.</strong>, Baycroft T. A., Triaud A. H. M. J., Nelson R. P.</p>
+                    <h3 class="font-semibold text-lg text-slate-800">Polar alignment of a circumbinary disc around a brown dwarf binary.</h3>
+                    <p class="text-slate-600"><strong class="text-sky-600">Smallwood, J. L.</strong>, Baycroft T. A., Triaud A. H. M. J., Nelson R. P.</p>
                     <div class="mt-2 space-x-4">
-                        <a href="https://arxiv.org/pdf/2506.22747" class="text-sky-500 hover:underline">View PDF</a>
-                        <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250622747S/abstract" class="text-sky-500 hover:underline">NADA ADS</a>                    
+                        <a href="https://arxiv.org/pdf/2506.22747" class="text-sky-600 hover:underline">View PDF</a>
+                        <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250622747S/abstract" class="text-sky-600 hover:underline">NADA ADS</a>
                     </div>
                 </div>
                 <!-- Publication 2 -->
                 <div class="publication-item -mx-8 px-8 py-4 rounded-lg">
                     <p class="text-sm text-slate-500">2025 | Monthly Notices of the Royal Astronomical Society Letters</p>
-                    <h3 class="font-semibold text-lg text-slate-200">Disc–planet misalignment from an unstable triple system: IRAS04125.</h3>
-                    <p class="text-slate-400">Nealon R.,<strong class="text-white">Smallwood, J. L.</strong>, Aly H., Winter A. J., Longarini C., Cuello N., Veras D., Alexander R.</p>
+                    <h3 class="font-semibold text-lg text-slate-800">Disc–planet misalignment from an unstable triple system: IRAS04125.</h3>
+                    <p class="text-slate-600">Nealon R.,<strong class="text-sky-600">Smallwood, J. L.</strong>, Aly H., Winter A. J., Longarini C., Cuello N., Veras D., Alexander R.</p>
                     <div class="mt-2 space-x-4">
-                        <a href="https://watermark.silverchair.com/slaf032.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA1QwggNQBgkqhkiG9w0BBwagggNBMIIDPQIBADCCAzYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMKIYGWQ1ThFjzQbm8AgEQgIIDB0mLS357GeEFpA2j6rktpb7NfnpOUsPpKQrn5xVpPerWZEpVlqx_KLXgQy5qvUXC0WrZFeCiRQv-QMKiFAVV8aTPs5F3qwx68tbX5WbNTlrrH-_Xg1I6LLxEuWpov2WQRK8ejl-PZeYlTZ3Et3dBmyXLs5Qm1jmiy8CXZDSV8OMysJ63D0Dgr55aoREMuaYoqqRcX5mv5JPpBAjZ7QaUTghaIBKA6JTMMg9ajUQMkLobNUSNGyUDPCQtNhIkbYUhnKu3S5TW5Bb1R3T8C1Tdh6FExpDheWLYTlDJPdLj9l9WDU6WFH45hHQvFolNUfsAKLdHDJ96Gjna9bJijHy1nq6oQHytAtHi9qSFqq7aWDh04LSqqSU1IiDNulcL5EUS2ARsIQIIktSxIkzSLSojFn3ObF8DRn7TZ-O-PAiYpYBMvGqX190ovMdeCmh-cpUvMhgDxWHbKVLqUBrhXhsL42duwsoY88LEgsFPIb0APBRJCsPVlonc_oy4hvIBXd7nlpCMxlNlBuatmnCS9N5Pq0o0-Yl5dDtN-uBNPLrEny4DyiZsB14poor_pXilyepX16aEhhgoEQHOdUrs2W2aHhu0sjR9cv8oZnlxdYGGX2QgxVuAZ52RikMiXGGX8EZVTmHnymFurE9Emnx49XnmAxYXT_-1fO7sT0nOm-Bjdw2lOG39ZruaaTHhPK-_6MJVaXPy_qcF0PZhrQR5pUPT9hj_G4ppSZOfHAWoirvO6T7ELDPCcTaeohj32khXhFX5WMTePV9c_IZe23IR5OLFujhWGkDIIABP15lNt6K4ZXCiOf1hyK5Kw2WCZ9C7bqRGDdh-al2ppDeHazLi-SvQN3H3m8OqJmkS5iVP0dVinbjgSinTMb9G7wDWmuQnSXwQF9nQiAKkdNGTsFYg_kjSF24x1p1IC42Uzy_Mk1nBQ1JlkW9Q00Ao4IXuaMZxPeUj3iWHfjLckyQLzYLShcpjMv8sODV_4j8CHCIMA7i6xLEtDCczpOUK3AAc7SlREoDXTL1YfpMy2Ps" class="text-sky-500 hover:underline">View PDF</a>
-                        <a href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.540L..84N/abstract" class="text-sky-500 hover:underline">NADA ADS</a>                    
+                        <a href="https://watermark.silverchair.com/slaf032.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA1QwggNQBgkqhkiG9w0BBwagggNBMIIDPQIBADCCAzYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMKIYGWQ1ThFjzQbm8AgEQgIIDB0mLS357GeEFpA2j6rktpb7NfnpOUsPpKQrn5xVpPerWZEpVlqx_KLXgQy5qvUXC0WrZFeCiRQv-QMKiFAVV8aTPs5F3qwx68tbX5WbNTlrrH-_Xg1I6LLxEuWpov2WQRK8ejl-PZeYlTZ3Et3dBmyXLs5Qm1jmiy8CXZDSV8OMysJ63D0Dgr55aoREMuaYoqqRcX5mv5JPpBAjZ7QaUTghaIBKA6JTMMg9ajUQMkLobNUSNGyUDPCQtNhIkbYUhnKu3S5TW5Bb1R3T8C1Tdh6FExpDheWLYTlDJPdLj9l9WDU6WFH45hHQvFolNUfsAKLdHDJ96Gjna9bJijHy1nq6oQHytAtHi9qSFqq7aWDh04LSqqSU1IiDNulcL5EUS2ARsIQIIktSxIkzSLSojFn3ObF8DRn7TZ-O-PAiYpYBMvGqX190ovMdeCmh-cpUvMhgDxWHbKVLqUBrhXhsL42duwsoY88LEgsFPIb0APBRJCsPVlonc_oy4hvIBXd7nlpCMxlNlBuatmnCS9N5Pq0o0-Yl5dDtN-uBNPLrEny4DyiZsB14poor_pXilyepX16aEhhgoEQHOdUrs2W2aHhu0sjR9cv8oZnlxdYGGX2QgxVuAZ52RikMiXGGX8EZVTmHnymFurE9Emnx49XnmAxYXT_-1fO7sT0nOm-Bjdw2lOG39ZruaaTHhPK-_6MJVaXPy_qcF0PZhrQR5pUPT9hj_G4ppSZOfHAWoirvO6T7ELDPCcTaeohj32khXhFX5WMTePV9c_IZe23IR5OLFujhWGkDIIABP15lNt6K4ZXCiOf1hyK5Kw2WCZ9C7bqRGDdh-al2ppDeHazLi-SvQN3H3m8OqJmkS5iVP0dVinbjgSinTMb9G7wDWmuQnSXwQF9nQiAKkdNGTsFYg_kjSF24x1p1IC42Uzy_Mk1nBQ1JlkW9Q00Ao4IXuaMZxPeUj3iWHfjLckyQLzYLShcpjMv8sODV_4j8CHCIMA7i6xLEtDCczpOUK3AAc7SlREoDXTL1YfpMy2Ps" class="text-sky-600 hover:underline">View PDF</a>
+                        <a href="https://ui.adsabs.harvard.edu/abs/2025MNRAS.540L..84N/abstract" class="text-sky-600 hover:underline">NADA ADS</a>
                     </div>
                 </div>
                 <!-- Publication 3 -->
                 <div class="publication-item -mx-8 px-8 py-4 rounded-lg">
                     <p class="text-sm text-slate-500">2021 | Nature Astronomy</p>
-                    <h3 class="font-semibold text-lg text-slate-200">Atmospheric Characterization of the Trappist-1 System.</h3>
-                    <p class="text-slate-400"><strong>Stellar, L.</strong>, & Kepler, J.</p>
+                    <h3 class="font-semibold text-lg text-slate-800">Atmospheric Characterization of the Trappist-1 System.</h3>
+                    <p class="text-slate-600"><strong>Stellar, L.</strong>, & Kepler, J.</p>
                     <div class="mt-2 space-x-4">
-                        <a href="#" class="text-sky-500 hover:underline">View Publication</a>
-                         <button class="text-sky-500 hover:underline" onclick="copyCitation(this, 'Stellar, L., & Kepler, J. (2021). Atmospheric Characterization of the Trappist-1 System. Nature Astronomy.')">Copy Citation</button>
+                        <a href="#" class="text-sky-600 hover:underline">View Publication</a>
+                         <button class="text-sky-600 hover:underline" onclick="copyCitation(this, 'Stellar, L., & Kepler, J. (2021). Atmospheric Characterization of the Trappist-1 System. Nature Astronomy.')">Copy Citation</button>
                     </div>
                 </div>
             </div>
@@ -297,9 +298,9 @@
 
         <!-- CV Section -->
         <section id="cv" class="content-section">
-            <div class="text-center bg-slate-800 p-8 sm:p-12 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-white mb-6">Curriculum Vitae</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto mb-8">
+            <div class="text-center bg-white p-8 sm:p-12 rounded-xl shadow-md">
+                <h2 class="text-3xl font-bold text-slate-900 mb-6">Curriculum Vitae</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mb-8">
                     My full CV contains a detailed list of my publications, research grants, conference presentations, and professional experience. Download the latest version below.
                 </p>
                 <a href="#" class="inline-flex items-center bg-sky-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-sky-700 transition-colors duration-300 shadow">
@@ -311,44 +312,44 @@
 
         <!-- Contact Section -->
         <section id="contact" class="content-section">
-             <div class="bg-slate-800 rounded-xl shadow-lg overflow-hidden">
+             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="grid md:grid-cols-2">
                     <div class="p-8">
-                        <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
-                        <p class="text-slate-400 mb-6">I am always looking for new collaborations and am open to discussing my research. Please don't hesitate to reach out.</p>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Get In Touch</h2>
+                        <p class="text-slate-600 mb-6">I am always looking for new collaborations and am open to discussing my research. Please don't hesitate to reach out.</p>
                         <div class="space-y-4">
                             <div class="flex items-center">
-                                <svg class="h-5 w-5 mr-3 text-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                <svg class="h-5 w-5 mr-3 text-sky-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                                 <span>l.stellar [at] mpa-garching.mpg.de</span>
                             </div>
                             <div class="flex items-center">
-                                <svg class="h-5 w-5 mr-3 text-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                                <svg class="h-5 w-5 mr-3 text-sky-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                                 <a href="#" class="hover:underline">linkedin.com/in/leo-stellar</a>
                             </div>
                              <div class="flex items-center">
-                                 <svg class="h-5 w-5 mr-3 text-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 2.8 3.2 2.8 5.1 0 1.4-.3 2.7-1 4-.7 1.2-1.8 2.3-3.1 3.1-1.3.8-2.8 1.3-4.4 1.3-1.6 0-3.2-.5-4.4-1.3-1.3-.8-2.4-1.8-3.1-3.1-.7-1.3-1-2.6-1-4 0-1.9 1.2-3.7 2.8-5.1C5.7 6.1 5 4 5 4s-3 1.4-3 5.1c0 2.2 1 4.2 2.5 5.8 1.5 1.6 3.6 2.6 5.9 2.6s4.4-1 5.9-2.6c1.5-1.6 2.5-3.6 2.5-5.8C25 5.4 22 4 22 4z"/></svg>
+                                 <svg class="h-5 w-5 mr-3 text-sky-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 2.8 3.2 2.8 5.1 0 1.4-.3 2.7-1 4-.7 1.2-1.8 2.3-3.1 3.1-1.3.8-2.8 1.3-4.4 1.3-1.6 0-3.2-.5-4.4-1.3-1.3-.8-2.4-1.8-3.1-3.1-.7-1.3-1-2.6-1-4 0-1.9 1.2-3.7 2.8-5.1C5.7 6.1 5 4 5 4s-3 1.4-3 5.1c0 2.2 1 4.2 2.5 5.8 1.5 1.6 3.6 2.6 5.9 2.6s4.4-1 5.9-2.6c1.5-1.6 2.5-3.6 2.5-5.8C25 5.4 22 4 22 4z"/></svg>
                                 <a href="#" class="hover:underline">@LeoStellarAstro</a>
                             </div>
                              <div class="flex items-center">
-                                 <svg class="h-5 w-5 mr-3 text-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                 <svg class="h-5 w-5 mr-3 text-sky-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                                 <span>Max Planck Institute, Garching, Germany</span>
                             </div>
                         </div>
                     </div>
-                    <div class="p-8 bg-slate-900/50">
-                         <h3 class="text-2xl font-bold text-white mb-4">Send a Message</h3>
+                    <div class="p-8 bg-slate-50">
+                         <h3 class="text-2xl font-bold text-slate-900 mb-4">Send a Message</h3>
                          <form action="#" method="POST" class="space-y-4">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-slate-300">Name</label>
-                                <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-white">
+                                <label for="name" class="block text-sm font-medium text-slate-700">Name</label>
+                                <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-slate-900">
                             </div>
                              <div>
-                                <label for="email" class="block text-sm font-medium text-slate-300">Email</label>
-                                <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-white">
+                                <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
+                                <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-slate-900">
                             </div>
                              <div>
-                                <label for="message" class="block text-sm font-medium text-slate-300">Message</label>
-                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-white"></textarea>
+                                <label for="message" class="block text-sm font-medium text-slate-700">Message</label>
+                                <textarea id="message" name="message" rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 text-slate-900"></textarea>
                             </div>
                             <div>
                                 <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500">
@@ -364,8 +365,8 @@
     </main>
     
     <!-- Footer -->
-    <footer class="bg-slate-800 border-t border-slate-700 mt-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-slate-400">
+    <footer class="bg-white border-t border-slate-200 mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-slate-500">
              &copy; <span id="year"></span> Dr. Jeremy L. Smallwood. All Rights Reserved.
         </div>
     </footer>
@@ -463,3 +464,4 @@
     </script>
 </body>
 </html>
+
